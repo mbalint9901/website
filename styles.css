@@ -1,0 +1,297 @@
+/* ===================================================================
+   Bálint Mazzag — shared stylesheet
+   Mobile-first: base rules target small screens. The single
+   min-width breakpoint below layers on desktop enhancements.
+   =================================================================== */
+
+:root {
+  --paper: #FCFBF9;
+  --card: #FFFFFF;
+  --ink: #1D1D1B;
+  --muted: #6E6A62;
+  --border: #E4E1D9;
+  --radius: 6px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.5rem;
+}
+
+/* ---- Header / nav (shared across all pages) ---- */
+header.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.site-brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+nav.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+  font-size: 0.82rem;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a:focus-visible {
+  color: var(--ink);
+}
+
+nav.site-nav a.active {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ---- Hero (home page only) ---- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero img.logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hero-text h1 {
+  font-family: 'Cardo', serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+}
+
+.hero-text .tagline {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+p.bio {
+  font-size: 0.98rem;
+  color: var(--ink);
+  max-width: 58ch;
+  margin: 0 0 2.25rem;
+}
+
+.section-label {
+  font-family: 'Cardo', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 0.85rem;
+}
+
+/* ---- Page title + intro (Projects / Publications) ---- */
+h1.page-title {
+  font-family: 'Cardo', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+}
+
+p.intro {
+  color: var(--muted);
+  max-width: 58ch;
+  margin: 0 0 2rem;
+  font-size: 0.95rem;
+}
+
+/* ---- Shared row-list component (Home "Elsewhere" + Projects) ---- */
+.list {
+  border-top: 1px solid var(--border);
+}
+
+.list-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+  transition: opacity 0.15s ease;
+}
+
+.list-row:hover,
+.list-row:focus-visible {
+  opacity: 0.65;
+  outline: none;
+}
+
+.list-main .label {
+  font-weight: 500;
+  font-size: 0.98rem;
+  margin-bottom: 0.15rem;
+}
+
+.list-main .desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.status-tag {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---- Publications: citation-style rows ---- */
+.pub-list {
+  border-top: 1px solid var(--border);
+}
+
+.pub-row {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+  transition: opacity 0.15s ease;
+}
+
+.pub-row:hover,
+.pub-row:focus-visible {
+  opacity: 0.65;
+  outline: none;
+}
+
+.pub-title {
+  font-family: 'Cardo', serif;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.pub-meta {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+footer.site-footer {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ===================================================================
+   Desktop enhancement layer — everything above already works
+   standalone on mobile; this just gives it more room to breathe.
+   =================================================================== */
+@media (min-width: 640px) {
+  body { font-size: 16px; }
+
+  .wrap { padding: 4rem 1.5rem 4rem; }
+
+  header.site-header {
+    margin-bottom: 3rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .site-brand img { width: 36px; height: 36px; }
+
+  nav.site-nav {
+    font-size: 0.9rem;
+    column-gap: 1.5rem;
+  }
+
+  .hero {
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero img.logo { width: 88px; height: 88px; }
+
+  .hero-text h1 { font-size: 2rem; }
+  .hero-text .tagline { font-size: 0.95rem; }
+
+  p.bio {
+    font-size: 1.02rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-label {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+  }
+
+  h1.page-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p.intro {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .list-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 0;
+  }
+
+  .status-tag { align-self: center; }
+
+  .list-main .label { font-size: 1.02rem; }
+  .list-main .desc { font-size: 0.85rem; }
+
+  .pub-row { padding: 1.15rem 0; }
+  .pub-title { font-size: 1.05rem; }
+  .pub-meta { font-size: 0.85rem; }
+
+  footer.site-footer { margin-top: 3rem; }
+}
