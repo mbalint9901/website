@@ -52,7 +52,7 @@ header.site-header {
 .site-brand img {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 0;
   object-fit: cover;
   display: block;
 }
@@ -86,19 +86,20 @@ nav.site-nav a.active {
 /* ---- Hero (home page only) ---- */
 .hero {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 1.25rem;
   margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
-.hero img.logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
+.hero img.portrait {
+  max-height: 300px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 10px;
   border: 1px solid var(--border);
   flex-shrink: 0;
+  display: block;
 }
 
 .hero-text h1 {
@@ -247,11 +248,11 @@ footer.site-footer {
   }
 
   .hero {
-    gap: 1.75rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
     margin-bottom: 2.5rem;
   }
-
-  .hero img.logo { width: 88px; height: 88px; }
 
   .hero-text h1 { font-size: 2rem; }
   .hero-text .tagline { font-size: 0.95rem; }

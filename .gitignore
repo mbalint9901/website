@@ -2,3 +2,5 @@
 Thumbs.db
 .vscode/
 .idea/
+scripts/fetch_publications.py
+scripts/requirements.txt

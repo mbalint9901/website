@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Publications | Bálint Mazzag</title>
 <meta name="description" content="Peer-reviewed and preprint research by Bálint Mazzag.">
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" href="assets/images/logo.png">
 
 <meta property="og:title" content="Publications — Bálint Mazzag">
 <meta property="og:description" content="Peer-reviewed and preprint research.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://balintmazzag.com/publications.html">
-<meta property="og:image" content="https://balintmazzag.com/logo.png">
+<meta property="og:image" content="https://balintmazzag.com/assets/images/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Publications — Bálint Mazzag">
 <meta name="twitter:description" content="Peer-reviewed and preprint research.">
-<meta name="twitter:image" content="https://balintmazzag.com/logo.png">
+<meta name="twitter:image" content="https://balintmazzag.com/assets/images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 <div class="wrap">
 
   <header class="site-header">
     <a class="site-brand" href="index.html">
-      <img src="logo.png" alt="Bálint Mazzag logo">
+      <img src="assets/images/logo.png" alt="Bálint Mazzag logo">
     </a>
     <nav class="site-nav">
       <a href="index.html">Home</a>
@@ -38,24 +38,58 @@
 
   <h1 class="page-title">Publications</h1>
 
-  <!-- REPLACE: add real publication rows in this format as you have them:
-  <a class="pub-row" href="[link to PDF/DOI]" target="_blank" rel="noopener">
-    <div class="pub-title">[Real Title]</div>
-    <div class="pub-meta">[Venue] | [Year]</div>
-  </a>
-  Delete the "coming soon" row below once you add the first real one. -->
+  <!-- Publications are loaded from publications.json — edit that file to add real entries,
+       no HTML editing needed. Format:
+       [{ "title": "...", "venue": "...", "year": 2025, "link": "https://..." }] -->
   <p class="intro">
     Peer-reviewed and preprint research.
   </p>
 
-  <div class="pub-list">
-    <div class="pub-row" style="cursor: default;">
-      <div class="pub-title">Publications will be listed here soon</div>
-    </div>
-  </div>
+  <div class="pub-list" id="pub-list"></div>
 
   <footer class="site-footer">© 2026</footer>
 
 </div>
+
+<script>
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  async function loadPublications() {
+    const container = document.getElementById('pub-list');
+    try {
+      const res = await fetch('assets/data/publications.json');
+      const pubs = await res.json();
+
+      if (!Array.isArray(pubs) || pubs.length === 0) {
+        container.innerHTML = `
+          <div class="pub-row" style="cursor: default;">
+            <div class="pub-title">Publications will be listed here soon</div>
+          </div>`;
+        return;
+      }
+
+      const sorted = [...pubs].sort((a, b) => (b.year || 0) - (a.year || 0));
+
+      container.innerHTML = sorted.map(pub => `
+        <a class="pub-row" href="${escapeHtml(pub.link || '#')}" target="_blank" rel="noopener">
+          <div class="pub-title">${escapeHtml(pub.title || 'Untitled')}</div>
+          <div class="pub-meta">${escapeHtml(pub.venue || '')} | ${escapeHtml(String(pub.year || ''))}${pub.citedBy ? ` | Cited by ${escapeHtml(String(pub.citedBy))}` : ''}</div>
+        </a>
+      `).join('');
+    } catch (err) {
+      container.innerHTML = `
+        <div class="pub-row" style="cursor: default;">
+          <div class="pub-title">Could not load publications.</div>
+        </div>`;
+      console.error('Failed to load publications.json', err);
+    }
+  }
+
+  loadPublications();
+</script>
 </body>
 </html>
