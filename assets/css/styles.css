@@ -125,8 +125,14 @@ p.bio {
 .section-label {
   font-family: 'Cardo', serif;
   font-size: 1rem;
+  font-weight: 400;
   color: var(--ink);
-  margin-bottom: 0.85rem;
+  margin: 0 0 0.85rem;
+}
+
+/* Section headings that follow a list (Publications page) */
+.pub-list + .section-label {
+  margin-top: 2.25rem;
 }
 
 /* ---- Page title + intro (Projects / Publications) ---- */
@@ -207,6 +213,17 @@ p.intro {
 .pub-row:focus-visible {
   opacity: 0.65;
   outline: none;
+}
+
+.pub-authors {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.pub-authors strong {
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .pub-title {
@@ -292,7 +309,9 @@ footer.site-footer {
 
   .pub-row { padding: 1.15rem 0; }
   .pub-title { font-size: 1.05rem; }
-  .pub-meta { font-size: 0.85rem; }
+  .pub-meta,
+  .pub-authors { font-size: 0.85rem; }
+  .pub-list + .section-label { margin-top: 2.75rem; }
 
   footer.site-footer { margin-top: 3rem; }
 }

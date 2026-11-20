@@ -1,0 +1,196 @@
+\documentclass[a4paper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty (inline)
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+\newcommand{\documentTitle}[3]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{4pt}
+
+    {\large #2}
+    \vspace{6pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    \footnotesize{#3}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+}
+
+\newcommand{\itemTitle}[1]{\item[] \underline{#1}\vspace{4pt}}
+\renewcommand\labelitemi{--}
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+ %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Bálint Mazzag}{Biostatistician \;|\; Data Scientist}{
+    \href{mailto:balint.mazzag@gmail.com}{
+      \raisebox{-0.15\height} \faEnvelope\ balint.mazzag@gmail.com} |
+    \href{https://www.linkedin.com/in/balintmazzag}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/balintmazzag} |
+    \href{https://github.com/mbalint9901}{
+      \raisebox{-0.15\height} \faGithub\ github.com/mbalint9901} |
+    \href{https://balintmazzag.com}{
+      \raisebox{-0.15\height} \faGlobe\ balintmazzag.com}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Summary}
+  Biostatistician working on observational studies with Hungarian national health insurance data (NEAK) since 2022. I have done the statistics for 10+ nationwide cohort studies, from the protocol to the published paper, most recently a heart failure study in the \textit{European Journal of Heart Failure}. I work mainly in R. English C2, French C1.
+
+  %--------%
+  % Skills %
+  %--------%
+
+\section{Skills}
+\begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=130pt]
+    \item[\textbf{Epidemiology \& statistics}] Cohort studies on claims and registry data; case definitions; survival analysis (Kaplan-Meier, Cox); GLM/GLMM; propensity scores; Bayesian models; protocols and SAPs
+    \item[\textbf{R}] tidyverse, ggplot2, R Markdown/Quarto, Shiny, package development (Proficient)
+    \item[\textbf{SQL \& Python}] Postgres, Oracle PL/SQL (Intermediate) | pandas, scikit-learn (Proficient)
+    \item[\textbf{Tools}] Git/GitLab, AI coding assistants (Proficient) | Docker, Dagster (Intermediate)
+\end{itemize}
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Experience}
+
+  \headingBf{Research Flow Kft., Budapest}{2022 -- Present}
+  \headingIt{Biostatistician and Data Scientist}{}
+\begin{resume_list}
+  \item Lead the statistics of 10+ nationwide observational studies on NEAK claims data (9.8M people) and specialist outpatient clinic data, in cardiology, osteoporosis, diabetes and paediatric psychiatry; the largest cohort covered 1.5M patients with diabetes.
+  \item Co-developed the case definitions and database query strategy for HF-EPI-HUN, the first nationwide heart failure epidemiology study on Hungarian administrative data (\textit{Eur J Heart Fail}, 2026).
+  \item Write study protocols (statistical sections) and SAPs; define cohorts, exposures and endpoints and document analysis assumptions.
+  \item Analyse time-to-event and longitudinal outcomes (Kaplan-Meier, Cox, GLMM, propensity score matching) and Bayesian models in R; work directly with clinical investigators to interpret and publish results.
+  \item Built an internal R package for recurring analyses and automated data quality checks in SQL/Python, cutting a 3--4 hour manual process to 15 minutes; automated data preparation with Dagster, reducing time from data arrival to report from 8 hours to 1.
+  % OPTIONAL: add a bullet if you have delivered training (e.g. biostatistics or R courses for clients/colleagues)
+\end{resume_list}
+
+  \headingBf{Makronóm Institute, Budapest}{2021 -- 2022}
+  \headingIt{Junior Analyst}{}
+  \begin{resume_list}
+    \item Built Hungary's Economic Policy Uncertainty index with automated data collection and NLP.
+  \end{resume_list}
+
+  %--------------%
+  % Publications %
+  %--------------%
+
+  \section{Selected Publications}
+  \begin{resume_list}
+    \item \textbf{2026} | Sepp R, \textbf{Mazzag B}, et al. \textit{How to query administrative databases for heart failure epidemiological investigations? Rationale, design and case definition criteria for the nationwide HF-EPI-HUN Study}. European Journal of Heart Failure. DOI: \href{https://doi.org/10.1093/ejhf/xuag189}{10.1093/ejhf/xuag189}.
+    \item \textbf{2026} | Mészáros Sz, \dots, \textbf{Mazzag B}, \dots, Takács I. \textit{Investigating factors influencing the long-term outcome of teriparatide treatment on the risk of hip fracture}. Journal of Bone and Mineral Research. DOI: \href{https://doi.org/10.1093/jbmr/zjag156}{10.1093/jbmr/zjag156}. Designed the study, wrote the statistical protocol, ran all analyses and drafted the manuscript.
+    \item \textbf{2026} | Nagy P, Frigyesy R, \textbf{Mazzag B}, et al. \textit{Treatment gaps in paediatric ADHD pharmacotherapy: a 10-year nationwide cohort study from Hungary}. Preprint, Research Square. DOI: \href{https://doi.org/10.21203/rs.3.rs-10411233/v1}{10.21203/rs.3.rs-10411233/v1}.
+    \item \textbf{2021} | Granát M, \textbf{Mazzag B}. \textit{Do European press reports give a realistic picture of COVID-19 severity?} Corvinus Univ. of Budapest (in Hungarian).
+  \end{resume_list}
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education, Awards and Languages}
+
+  \headingBf{NOVA School of Business and Economics, Lisbon}{}
+  \headingIt{MSc CEMS Master in International Management}{2023 -- 2024}
+  \headingBf{Corvinus University of Budapest}{}
+  \headingIt{BA Applied Economics (Financial Mathematics) and MSc Finance}{2017 -- 2024}
+  \vspace{0.5\baselineskip}
+  \heading{\textbf{Awards:} Winner, KSH national statistics competition; winner, Whiteshield Global Data Science Competition 2022; 2nd/120, Morgan Stanley QuantChallenge}{}
+  \heading{\textbf{Languages:} Hungarian (native), English (C2), French (C1), Spanish (A2)}{}
+
+\end{document}

@@ -2,5 +2,7 @@
 Thumbs.db
 .vscode/
 .idea/
-scripts/fetch_publications.py
-scripts/requirements.txt
+
+# LaTeX build output (the published PDF lives in assets/cv/)
+cv/*
+!cv/*.tex
