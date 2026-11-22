@@ -3,6 +3,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-# LaTeX build output (the published PDF lives in assets/cv/)
+# LaTeX build output (keep only the source and the published PDF)
 cv/*
 !cv/*.tex
+!cv/*.pdf

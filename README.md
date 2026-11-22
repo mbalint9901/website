@@ -10,9 +10,9 @@ Personal site
 ├── publications.html    Publications list (static HTML, edited by hand)
 ├── sitemap.xml          Submitted to Google Search Console
 ├── robots.txt
+├── cv/                  Balint_Mazzag_CV.tex (source) + .pdf (linked from the home page)
 ├── assets/
 │   ├── css/styles.css
-│   ├── cv/Balint_Mazzag_CV.pdf
 │   └── images/          logo.png, portrait.jpg (also the social preview image)
 ├── LICENSE
 └── .gitignore
@@ -20,10 +20,10 @@ Personal site
 
 ## CV
 
-Source is `cv/Balint_Mazzag_CV.tex`. Rebuild and publish with:
+Source and published PDF both live in `cv/`. Rebuild with:
 
 ```
-cd cv && latexmk -pdf Balint_Mazzag_CV.tex && latexmk -c && mv Balint_Mazzag_CV.pdf ../assets/cv/
+cd cv && latexmk -pdf Balint_Mazzag_CV.tex && latexmk -c
 ```
 
 ## Publications
