@@ -195,6 +195,11 @@ p.intro {
   white-space: nowrap;
 }
 
+/* Indented child row (e.g. TidyTransit under Projects on the home page) */
+.list-row.list-sub {
+  padding-left: 1.5rem;
+}
+
 /* ---- Publications: citation-style rows ---- */
 .pub-list {
   border-top: 1px solid var(--border);

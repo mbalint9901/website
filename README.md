@@ -8,6 +8,7 @@ Personal site
 ├── index.html           Home (bio + links)
 ├── projects.html        Portfolio of projects
 ├── publications.html    Publications list (static HTML, edited by hand)
+├── contact.html         Email, CV, GitHub
 ├── sitemap.xml          Submitted to Google Search Console
 ├── robots.txt
 ├── cv/                  Balint_Mazzag_CV.tex (source) + .pdf (linked from the home page)
