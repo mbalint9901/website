@@ -28,8 +28,8 @@ cd cv && latexmk -pdf Balint_Mazzag_CV.tex && latexmk -c
 
 ## Publications
 
-The list in `publications.html` is curated by hand, not generated, so it can show author lists
-(with my name in bold), sections and DOI links. Add new entries by copying a `pub-row` block;
+The list in `publications.html` is curated by hand, not generated, so it can show author lists,
+sections and DOI links. Add new entries by copying a `pub-row` block;
 the formatting rules are in the HTML comment at the top of the list. Update `lastmod` in
 `sitemap.xml` when the page changes.
 

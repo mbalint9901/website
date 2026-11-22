@@ -221,11 +221,6 @@ p.intro {
   margin-bottom: 0.2rem;
 }
 
-.pub-authors strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
 .pub-title {
   font-family: 'Cardo', serif;
   font-size: 1rem;
